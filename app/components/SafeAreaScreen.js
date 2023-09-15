@@ -13,7 +13,7 @@ function SafeAreaScreen({ children, style }) {
 const styles = StyleSheet.create({
   screenview: {
     paddingTop: Constants.statusBarHeight,
-    padding: 10,
+    padding: 5,
     flex: 1,
   },
   view: {
