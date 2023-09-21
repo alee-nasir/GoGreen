@@ -11,51 +11,61 @@ import {
 import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
-function Signin(props) {
+function SignUp() {
   return (
     <SafeAreaScreen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/greenlogo2.png")} />
       <FormComponent
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
         <FormFieldComponent
-          icon="email"
-          name="email"
-          placeholder="Email"
-          autoCapitalize="none"
           autoCorrect={false}
-          keyboardType="email-address"
+          icon="account"
+          name="name"
+          placeholder="Name"
         />
         <FormFieldComponent
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="email"
+          keyboardType="email-address"
+          name="email"
+          placeholder="Email"
+          textContentType="emailAddress"
+        />
+        <FormFieldComponent
+          autoCapitalize="none"
+          autoCorrect={false}
           icon="lock"
           name="password"
           placeholder="Password"
-          autoCapitalize="none"
-          autoCorrect={false}
           secureTextEntry
+          textContentType="password"
         />
-        <Submit_Button title="Sign in" />
+        <Submit_Button title="Sign Up" />
       </FormComponent>
     </SafeAreaScreen>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    backgroundColor: colors.lightGoogle,
+  },
   logo: {
     width: 150,
     height: 150,
     alignSelf: "center",
-    marginTop: 10,
-  },
-  container: {
-    backgroundColor: colors.lightGoogle,
+    marginTop: 30,
   },
 });
 
-export default Signin;
+export default SignUp;

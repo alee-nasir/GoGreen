@@ -11,6 +11,7 @@ function ImageComponentList({ imagePaths = [], onRemoveImage, onAddImage }) {
       <ScrollView
         ref={scrollView}
         horizontal
+        showsHorizontalScrollIndicator={false}
         onContentSizeChange={() => scrollView.current.scrollToEnd()}
       >
         <View style={styles.container}>

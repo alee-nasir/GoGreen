@@ -1,24 +1,31 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableWithoutFeedback,
+} from "react-native";
 import colors from "../config/colors";
 import UiText from "./UiText/UiText";
 
-function Card({ title, subTitle, imagePath }) {
+function Card({ title, subTitle, imagePath, onPress }) {
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={imagePath} />
-      <View style={styles.details}>
-        <UiText style={styles.title}>{title}</UiText>
-        <UiText style={styles.subTitle}>{subTitle}</UiText>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={[styles.card, styles.shadowProp]}>
+        <Image style={styles.image} source={{ uri: imagePath }} />
+        <View style={styles.details}>
+          <UiText style={styles.title}>{title}</UiText>
+          <UiText style={styles.subTitle}>{subTitle}</UiText>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 const styles = StyleSheet.create({
   card: {
     borderRadius: 15,
     backgroundColor: colors.white,
-    marginBottom: 20,
+    marginBottom: 15,
     overflow: "hidden",
   },
   image: {
@@ -28,9 +35,15 @@ const styles = StyleSheet.create({
   details: {
     padding: 10,
   },
+  title: { fontSize: 16, marginBottom: 5 },
   subTitle: {
     color: colors.secondary,
     fontWeight: "bold",
+    fontSize: 15,
+  },
+  shadowProp: {
+    shadowColor: "#71797E",
+    elevation: 3,
   },
 });
 

@@ -3,13 +3,15 @@ import { Image, View, StyleSheet } from "react-native";
 import UiText from "../components/UiText/UiText.android";
 import colors from "../config/colors";
 import ItemList from "../components/ItemList";
-function CardDetails(props) {
+function CardDetails({ route }) {
+  const listing = route.params;
+
   return (
     <View>
-      <Image style={styles.image} source={require("../assets/rose.jpg")} />
+      <Image style={styles.image} source={listing.image} />
       <View style={styles.details}>
-        <UiText style={styles.title}>Gold Rose For Sale</UiText>
-        <UiText style={styles.price}>$100</UiText>
+        <UiText style={styles.title}>{listing.title}</UiText>
+        <UiText style={styles.price}>${listing.price}</UiText>
         <View style={styles.sellercontainer}>
           <ItemList
             image={require("../assets/seller.jpg")}

@@ -17,6 +17,7 @@ const accountItems = [
   },
   {
     title: "My Messages",
+    targetScreen: "Inbox",
     icon: {
       name: "email",
       backgroundColor: colors.secondary,
@@ -24,7 +25,7 @@ const accountItems = [
   },
 ];
 
-function AccountUi(props) {
+function AccountUi({ navigation }) {
   return (
     <SafeAreaScreen style={styles.accountbackground}>
       <View style={styles.accountcontainer}>
@@ -48,6 +49,7 @@ function AccountUi(props) {
                   backgroundColor={item.icon.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
         />

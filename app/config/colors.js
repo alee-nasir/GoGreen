@@ -2,6 +2,7 @@ export default {
   primary: "#a2e389",
   secondary: "#04ac94",
   white: "#fff",
+  lightGoogle: "#eeeeee",
   lightMedium: "#9c9a9a",
   medium: "#6e6969",
   light: "#f8f4f4",
